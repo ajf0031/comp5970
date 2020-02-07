@@ -1,7 +1,9 @@
 # COMP 5970 Project 1
 Contains implementation for Needleman-Wunsch and Smith-Waterman algorithms, using the BLOSUM 62 scoring matrix
 
+
 ###How to run
+
 `python project1.py path_to_sequence1 path_to_sequence2`
 
 Alternatively, if no arguments are supplied, it defaults to selecting the pair1 sequences.

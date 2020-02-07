@@ -26,7 +26,19 @@ def read_blosum():
 	blosum_file.close()
 
 def read_sequences():
-	if len(sys.argv) == 4:
+	if len(sys.argv) == 2:
+		if sys.argv[1] == "pair1":
+			file1 = "pair1//1k4rA_dengue_virus.fasta"
+			file2 = "pair1//5ire_zika_virus.fasta"
+		elif sys.argv[1] == 'pair2':
+			file1 = "pair2//1dzl_HPV.fasta"
+			file2 = "pair2//3mge_HIV.fasta"
+		elif sys.argv[1] == "pair3":
+			file1 = "pair3//2plv1_polio_virus.fasta"
+			file2 = "pair3//4rhv1_rhino_virus.fasta"
+		else:
+			exit("Please format using python project1.py [pair1|pair2|pair3]")
+	elif len(sys.argv) == 3:
 		file1 = sys.argv[1]
 		flie2 = sys.argv[2]
 	else:

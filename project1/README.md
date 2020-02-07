@@ -1,16 +1,15 @@
 # COMP 5970 Project 1
-Contains implementation for Needleman-Wunsch and Smith-Waterman algorithms, using the BLOSUM 62 scoring matrix. **NOTE: The BLOSUM 62 matrix file `blosum.txt` must be in the same directory as project.py and has the comment at the top removed and the first line begins with the Amino Acid header,**
-
+Contains implementation for Needleman-Wunsch and Smith-Waterman algorithms, using the BLOSUM 62 scoring matrix. **NOTE: The BLOSUM 62 matrix file `blosum.txt` must be in the same directory as project.py and has the comment at the top removed and the first line begins with the Amino Acid header.**
 
 ### How to Run
 
-##### If inputting two FASTA sequences
+##### If inputting two FASTA sequences:
 `python project1.py path_to_sequence1 path_to_sequence2`
 
-##### If choosing one of the three pairs provided in the directory
+##### If choosing one of the three pairs provided in the directory:
 `python project1.py [pair1|pair2|pair3]`
 
-##### Default: Selects the pair1 sequences by using the paths `pair1/1k4rA_dengue_virus.fasta` and `pair1/5ire_zika_virus.fasta`.
+##### Default- Selects the pair1 sequences by using the paths `pair1/1k4rA_dengue_virus.fasta` and `pair1/5ire_zika_virus.fasta`:
 `python project1.py`
 
 ### Output

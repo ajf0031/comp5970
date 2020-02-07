@@ -88,6 +88,7 @@ def needleman_wunsch(seq1, seq2):
 
 	s1, match, s2 = backtrack(seq1, seq2, len(seq1), len(seq2), value_matrix, direction_matrix)
 	
+	print("Needleman Wunsch Global Alignment")	
 	print("Score: %s" % value_matrix[-1][-1])
 	print_alignment(s1, match, s2)
 
@@ -129,6 +130,7 @@ def smith_waterman(seq1, seq2):
 	
 	s1, match, s2 = backtrack(seq1, seq2, max_value_i, max_value_j, value_matrix, direction_matrix)
 	
+	print("Smith Waterman Local Alignment")
 	print("Score: %s" % max_value)
 	print_alignment(s1, match, s2)
 

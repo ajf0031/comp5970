@@ -1,5 +1,5 @@
 # COMP 5970 Project 1
-Contains implementation for Needleman-Wunsch and Smith-Waterman algorithms, using the BLOSUM 62 scoring matrix. **NOTE: The BLOSUM 62 matrix file `blosum.txt` must be in the same directory as project.py and has the comment at the top removed and the first line begins with the Amino Acid header.**
+Contains implementation for Needleman-Wunsch and Smith-Waterman algorithms, using the BLOSUM 62 scoring matrix. **NOTE: The BLOSUM 62 matrix file `blosum.txt` must be in the same directory as project.py and has the comment at the top removed, and the first line begins with the Amino Acid header.**
 
 ### How to Run
 

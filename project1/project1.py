@@ -15,7 +15,10 @@ def main():
 	smith_waterman(seq1, seq2)
 
 def read_blosum():
-	blosum_file = open("blosum.txt", "r")
+	try:
+		blosum_file = open("blosum.txt", "r")
+	except: 
+		exit("Error opening blosum file, there should be a file called blosum.txt in this directory")
 	index = 0
 	blosum_file.readline()
 	for line in blosum_file: 
@@ -42,14 +45,13 @@ def read_sequences():
 		file1 = sys.argv[1]
 		flie2 = sys.argv[2]
 	else:
-	#	file1 = "seq1.txt"
-	#	file2 = "seq2.txt"
 		file1 = "pair1//1k4rA_dengue_virus.fasta"
 		file2 = "pair1//5ire_zika_virus.fasta"
-	
-	fp1 = open(file1, "r")
-	fp2 = open(file2, "r")
-
+	try:	
+		fp1 = open(file1, "r")
+		fp2 = open(file2, "r")
+	except:
+		exit("Error opening file. Please make sure to include the proper path of the file")
 	sequence1_list = fp1.readlines()
 	sequence2_list = fp2.readlines()
 	sequence1 = "" 

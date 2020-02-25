@@ -243,7 +243,7 @@ def calculate_gain(total_entropy, attributes, amino_acid_tuple, total):
 				attribute_total[0] += amino_acid_tuple[amino_acid][0]					
 				attribute_total[1] += amino_acid_tuple[amino_acid][1]
 		
-		#If the attribute explains none or all the data, it is useless	
+		#If the attribute is the total amount of data or none of the data, then no decisions can be made	
 		if attribute_total == [0, 0] or attribute_total == total:
 			continue 
 

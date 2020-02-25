@@ -24,8 +24,12 @@ def main():
 
 	else:
 		print "Running Test mode"
-		with open("tree.bin", "rb") as f:
-			root = pickle.load(f)
+		try:
+			with open("tree.bin", "rb") as f:
+				root = pickle.load(f)
+		except:
+			print "No training data found. Please run the train mode before testing"
+			exit()
 		start = 112
 		end = 150
 		fasta_list, sa_list = read_sequences(mode, fasta_path, sa_path)

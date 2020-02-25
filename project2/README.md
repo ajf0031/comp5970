@@ -15,7 +15,7 @@ OR
 `python id3.py test`
 
 ### Default
-trains using paths `fasta/` and `sa/` directories in the same directory as `id3.py`
+trains using paths `fasta/` and `sa/` directories in the same directory: 
 `python id3.py`
 
 ## Output:

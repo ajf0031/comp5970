@@ -2,7 +2,7 @@
 Contains implementation for ID3 decision tree offline learning algorithm on a fasta and corrosponding sa sequence. Ten attributes are chosen to create the tree with, and they are stored in `attributes.py` Running `id3.py` can be done through either a `train` or `test` mode. The `train` mode will create a decision tree based on 75% of the files given and store it in a binary file for later use. The `test` mode will test the remaining 25% of the data using the binary tree file, and print out statistics on how well it performed.
 
 ## How To Run
-
+This project was created and run on the Auburn tux machines using Python 2.7.5
 ### Training:
 ##### If supplying a fasta and sa path:
 `python id3.py path_to_fasta_directory path_to_sa_directory`

@@ -5,7 +5,7 @@ Contains implementation for Gaussian Naive Bayes offline learning algorithm on a
 This project was created and run on the Auburn tux machines using Python 2.7.5
 ### Training:
 ##### If supplying a fasta, ss, and pssm path:
-```python project3.py train path_to_fasta_directory path_to_sa_directory path_to_pssm_directory```
+```python project3.py train path_to_fasta_directory path_to_ss_directory path_to_pssm_directory```
 ##### Defaults to `fasta/`, `ss/`, and `pssm/` paths:
 ```python project3.py train```
 

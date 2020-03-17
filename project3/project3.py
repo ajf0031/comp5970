@@ -128,10 +128,11 @@ def read_files(mode, fasta_path, sa_path, pssm_path):
 	if mode == "train":
 		start = 0
 		end = int(TRAINING_PROPORTION*len(files))
+
 	else:
 		start = int(TRAINING_PROPORTION*len(files))
 		end = len(files)
-	
+			
 	#fasta intake
 	for i in range(start, end):
 		fp = open("%s/%s" % (fasta_path, files[i]), "r")
@@ -156,7 +157,6 @@ def read_files(mode, fasta_path, sa_path, pssm_path):
 			sa_sequence += sequence_as_list[line].strip()
 		sa_list.append(sa_sequence)
 		fp.close()
-
 
 	#pssm intake
 	pssm_list = []
@@ -219,19 +219,17 @@ def calculate_mean(sa_list, pssm_list):
 		mean[k][0] /= total[0]
 		mean[k][1] /= total[1]
 		mean[k][2] /= total[2]
-	
 
 	for i in range(len(pssm_list)):
 		for j in range(len(pssm_list[i])):
 			for k in range(len(pssm_list[i][j])):
-				var[k][sa_map[sa_list[i][j]]] += (pssm_list[i][j][k] - mean[k][sa_map[sa_list[i][j]]]) ** 2
-	
+				var[k][sa_map[sa_list[i][j]]] += (pssm_list[i][j][k] - mean[k][sa_map[sa_list[i][j]]]) ** 2	
 			
 	for k in range(len(mean)):
 		var[k][0] = var[k][0] / total[0]
 		var[k][1] = var[k][1] / total[1]
 		var[k][2] = var[k][2] / total[2]
-		
+	
 	return mean, var
 
 

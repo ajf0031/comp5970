@@ -5,19 +5,16 @@ Contains implementation for Gaussian Naive Bayes offline learning algorithm on a
 This project was created and run on the Auburn tux machines using Python 2.7.5
 ### Training:
 ##### If supplying a fasta, ss, and pssm path:
-```python project3.py path_to_fasta_directory path_to_ss_directory path_to_pssm_directory```
-###### OR
-```python project3.py train path_to_fasta_directory path_to_sa_directory```
-##### Defaults to `fasta/` and `sa/` paths:
+```python project3.py train path_to_fasta_directory path_to_ss_directory path_to_pssm_directory```
+##### Defaults to `fasta/`, `ss/`, and `pssm/` paths:
 ```python project3.py train```
 
 ### Testing:
-```python project3.py test```
-###### OR
+##### If supplying a fasta, ss, and pssm path:
 ```python project3.py test path_to_fasta_directory path_to_ss_directory path_to_pssm_directory ```
 ### Default
 trains using paths `fasta/`, `ss/`, and `pssm/` directories in the current directory: 
-`python project3.py`
+```python project3.py test```
 
 ## Output:
 There is no output for `train` other than an indication that the means and variances have been created and stored in `train.bin`. For `test`, accuracy is computing using Q3 accuracy. Sample output for `test` is given below, using the `fasta`, `ss`, and `pssm` files given with the first 75% used as training and the other 25% being used as test:

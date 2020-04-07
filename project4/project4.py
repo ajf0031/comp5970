@@ -16,7 +16,7 @@ def main():
 		rr_list, pssm_list = read_files(mode, rr_path, pssm_path)
 		pssm_list = pssm_transform(pssm_list)
 		features, labels = feature_label_generation(rr_list, pssm_list)
-		weights = stochastic_logistic_regression(features, labels, 10000000, .0000001)	
+		weights = stochastic_logistic_regression(features, labels, 10000000, .000001)	
 		with open("train.bin", "wb") as f:
 			pickle.dump(weights, f)
 		print "Finished training. Data stored in train.bin"
@@ -227,7 +227,6 @@ def feature_label_generation(rr_list, pssm_list):
 
 	
 def calculate_accuracy(rr_list, pssm_list, weights):
-	print weights[2]
 	#L10
 	correct = 0
 	total = 0

@@ -12,8 +12,9 @@ This project was created and run on the Auburn tux machines using Python 2.7.5
 ### Testing:
 ##### If supplying an rr, and pssm path:
 ```python project4.py test path_to_rr_directory path_to_pssm_directory ```
-### Default
+##### Default
 trains using paths`rr/`, and `pssm/` directories in the current directory: 
+
 ```python project4.py test```
 
 ## Output:

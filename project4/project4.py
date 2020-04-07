@@ -16,7 +16,7 @@ def main():
 		rr_list, pssm_list = read_files(mode, rr_path, pssm_path)
 		pssm_list = pssm_transform(pssm_list)
 		features, labels = feature_label_generation(rr_list, pssm_list)
-		weights = stochastic_logistic_regression(features, labels, 10000000, .000001)	
+		weights = stochastic_logistic_regression(features, labels, 10000000, .00001)	
 		with open("train.bin", "wb") as f:
 			pickle.dump(weights, f)
 		print "Finished training. Data stored in train.bin"
@@ -90,7 +90,6 @@ def command_line_parser():
 
 
 def read_files(mode, rr_path, pssm_path):
-
 	files = [f for f in listdir(pssm_path) if isfile(join(pssm_path, f))]
 	files = sorted(files)
 	
@@ -116,13 +115,12 @@ def read_files(mode, rr_path, pssm_path):
 			lines[j] = all_numbers[1:21]
 
 		pssm_list.append(lines)
-	
 
 	#rr intake
 	rr_list = []
-
 	files = [f for f in listdir(rr_path) if isfile(join(rr_path, f))]
 	files = sorted(files)
+	
 	for i in range(start + 1, end + 1):
 		fp = open("%s/%s" % (rr_path, files[i]), "r")
 		lines = fp.readlines()
@@ -139,19 +137,6 @@ def read_files(mode, rr_path, pssm_path):
 
 
 	return rr_list, pssm_list 
-
-
-
-def log_likelihood(features, target, weights):
-	scores = 0
-	for i in range(len(features)):
-		scores = features[i] + weights[i]
-
-	log_likelihood = 0
-	for i in range(len(features)):
-		log_likelhood += target * scores - log(1 + exp(scores))
-	
-	return log_likelihood
 
 
 def stochastic_logistic_regression(features, target, steps, step_size):
@@ -180,6 +165,7 @@ def stochastic_logistic_regression(features, target, steps, step_size):
 
 def calculate_sigmoid(scores):
 	return exp(scores)/(1 + exp(scores))
+
 
 def get_scores(features, weights):
 	scores = 0
@@ -232,7 +218,6 @@ def calculate_accuracy(rr_list, pssm_list, weights):
 	total = 0
 	for i in range(len(rr_list)):
 		for j in range(int(len(pssm_list[i]) / 10)):
-			prediction =  - 1
 			feature = pssm_list[i][rr_list[i][j][0]-1] + pssm_list[i][rr_list[i][j][1]-1]
 			scores = get_scores(feature, weights)
 			probability = calculate_sigmoid(scores)
@@ -248,7 +233,6 @@ def calculate_accuracy(rr_list, pssm_list, weights):
 	total = 0
 	for i in range(len(rr_list)):
 		for j in range(int(len(pssm_list[i]) / 5)):
-			prediction =  - 1
 			feature = pssm_list[i][rr_list[i][j][0]-1] + pssm_list[i][rr_list[i][j][1]-1]
 			scores = get_scores(feature, weights)
 			probability = calculate_sigmoid(scores)
@@ -264,7 +248,6 @@ def calculate_accuracy(rr_list, pssm_list, weights):
 	total = 0
 	for i in range(len(rr_list)):
 		for j in range(int(len(pssm_list[i]) / 2)):
-			prediction =  - 1
 			feature = pssm_list[i][rr_list[i][j][0]-1] + pssm_list[i][rr_list[i][j][1]-1]
 			scores = get_scores(feature, weights)
 			probability = calculate_sigmoid(scores)

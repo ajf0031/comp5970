@@ -1,4 +1,4 @@
- # COMP 5970 Project 4
+ # COMP 5970 Project 5
 Contains implementation for Lindear Regression using stochastic gradient descent using fasta, pssm, and tmalign files. Twenty five features for each protein were selected, and run for each unique pair of proteins, making a total of 50 features. The first 20 features each protein were the average proportion of the percentages in the pssm file. The next two were the predicted exposed and buried proportions using the ID3 training data from project 2. The final 3 features for each protein were the proportions of secondary structures (H, E, C) given from the GNB training data implemented in project 3. The labels for each unique pair is given by the mean of the two TM align scores. The `train` mode will generate the weights as defined by linear regression using stochastic gradient descent, and `test` will make predictions using those weights and determine the average squared error from the predicted TM score. The first 75% of unique pairs are training and the last 25% are testing data.
 
 ## How To Run

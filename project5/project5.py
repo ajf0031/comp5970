@@ -18,7 +18,7 @@ def main():
 		print "Running Training mode"
 		protein_features = get_protein_features(mode, fasta_path, pssm_path)	
 		features, labels = feature_label_generation(mode, protein_features, pssm_path, tm_path)
-		weights = stochastic_linear_regression(features, labels, 100000000, .00001)	
+		weights = stochastic_linear_regression(features, labels, 10000000, .00001)	
 		with open("weights.bin", "wb") as f:
 			pickle.dump(weights, f)
 		print "Finished training. Data stored in train.bin"
@@ -42,7 +42,7 @@ def calculate_accuracy(weights, features, labels):
 		average_squared_error += (labels[i] - prediction) ** 2
 
 	average_squared_error /= len(features)
-	print average_squared_error
+	print "Average squared error: %f" % average_squared_error
 	return average_squared_error
 
 
@@ -93,7 +93,7 @@ def get_pssm_proportions(pssm_path):
 	return pssm_proportions
 
 
-#Transforms pssm list to contain a sliding window of the previous and post 2 sequences, -1 values are included for edge cases
+
 def command_line_parser():
 	if len(sys.argv) == 1:
 		mode = "train"
@@ -103,8 +103,8 @@ def command_line_parser():
 			print "Invalid mode: please use either \"train\" or \"test\""
 			exit()
 	
-	if len(sys.argv) == 4:
-		fasta = sys.argv[2]
+	if len(sys.argv) == 5:
+		fasta_path = sys.argv[2]
 		pssm_path = sys.argv[3]
 		tm_path = sys.argv[4]
 	else:
@@ -142,6 +142,8 @@ def stochastic_linear_regression(features, labels, steps, step_size):
 			print "Iteration %d" % (step)
 
 	return weights
+
+
 def feature_label_generation(mode, protein_features, pssm_path, tm_path):
 	files = [path.splitext(f)[0] for f in listdir(pssm_path) if isfile(join(pssm_path, f))]
 	files = sorted(files)
@@ -173,6 +175,7 @@ def feature_label_generation(mode, protein_features, pssm_path, tm_path):
 		end = len(protein_pair_features)
 
 	return protein_pair_features[start:end], protein_pair_labels[start:end]
+
 
 if  __name__ == "__main__":
 	main()
